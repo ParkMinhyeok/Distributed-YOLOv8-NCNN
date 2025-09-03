@@ -44,7 +44,7 @@ PC는 표준 PyTorch YOLOv8 모델을 NCNN 형식으로 변환하는 데 사용�
 
 * **NCNN 라이브러리 빌드 및 설치**:
     ```bash
-    git clone --depth=1 [https://github.com/Tencent/ncnn.git](https://github.com/Tencent/ncnn.git)
+    git clone https://github.com/Tencent/ncnn.git
     cd ncnn
     mkdir -p build && cd build
     cmake -DNCNN_VULKAN=OFF -DNCNN_BUILD_EXAMPLES=ON ..
