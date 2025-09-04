@@ -103,7 +103,7 @@ NCNN 모델 파일을 얻기 위해 다음 단계를 따르세요.
     cmake ..
     make
     ```
-* **2방법: 코드 컴파일 **:
+* **2방법: 코드 컴파일**:
     ```bash
     g++ main.cpp -o main \
     -I/home/jetson/ncnn/build/install/include/ncnn \
