@@ -84,7 +84,7 @@ NCNN 모델 파일을 얻기 위해 다음 단계를 따르세요.
 
 이제 라즈베리파이에서 C++ 추론 애플리케이션을 컴파일하고 실행합니다.
 
-* **1단계: C++ 소스 코드(`main.cpp`) 및 `CMakeLists.txt` 준비**:
+* **1방법: C++ 소스 코드(`main.cpp`) 및 `CMakeLists.txt` 준비**:
     C++ 코드(`main.cpp`)를 프로젝트 디렉토리에 배치합니다. 같은 디렉토리에 아래 내용으로 `CMakeLists.txt` 파일을 생성합니다.
     ```cmake
     cmake_minimum_required(VERSION 3.10)
@@ -97,14 +97,21 @@ NCNN 모델 파일을 얻기 위해 다음 단계를 따르세요.
     target_link_libraries(yolo_app ${OpenCV_LIBS} ncnn)
     ```
 
-* **2단계: 코드 컴파일**:
+* **1-2방법: 코드 컴파일**:
     ```bash
     mkdir build && cd build
     cmake ..
     make
     ```
+* **2방법: 코드 컴파일 **:
+    ```bash
+    g++ main.cpp -o main \
+    -I/home/jetson/ncnn/build/install/include/ncnn \
+    -L/home/jetson/ncnn/build/install/lib -lncnn \
+    `pkg-config --cflags --libs opencv4` -pthread -std=c++11 -lvulkan -fopenmp
+    ```
 
-* **3단계: 추론 실행 파일 실행**:
+* **2단계: 추론 실행 파일 실행**:
     모델 파일(`.param`, `.bin`)과 테스트 이미지가 `build` 디렉토리에 있는지 확인하고 실행합니다.
     ```bash
     ./yolo_app ../test.jpg
