@@ -47,6 +47,8 @@ PC는 표준 PyTorch YOLOv8 모델을 NCNN 형식으로 변환하는 데 사용�
     git clone https://github.com/Tencent/ncnn.git
     cd ncnn
     mkdir -p build && cd build
+    #Jetson nano는 다음 명령어 실행
+    #git submodule update --init
     cmake -DNCNN_VULKAN=OFF -DNCNN_BUILD_EXAMPLES=ON ..
     make -j$(nproc)
     sudo make install
