@@ -1,4 +1,4 @@
-## 율주행 로봇 테스트 베드를 실제 도로와 유사한 구현을 위한 코스 및 환경 구성
+## 자율주행 로봇 테스트 베드를 실제 도로와 유사한 구현을 위한 코스 및 환경 구성
 
 ### 평가 지표 (Metrics)
 - FPS (Frames Per Second) / Δt: 워밍업 제거 후의 평균 FPS와 95% 신뢰 구간(CI)을 함께 보여줍니다.
@@ -17,3 +17,15 @@
 - trial 1, 2: Good (100Mbps)
 - trial 3: Normal (20Mbps)
 - trial 4: Bad (2Mbps)
+
+---
+
+### Run
+**Server**
+```bash
+uvicorn server_app:app --host 0.0.0.0 --port 8000
+```
+**Client**
+```bash
+python edge_client_raw.py
+```
